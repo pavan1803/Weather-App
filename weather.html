@@ -270,6 +270,8 @@ button:hover {
         const { name, main, weather } = data;
         const temp = main.temp.toFixed(1);
         const desc = weather[0].description;
+        recentSearches = recentSearches.filter(item => item.name.toLowerCase()
+    )
 
         // Put newest search at the beginning
         recentSearches.unshift({ name, temp, desc });
@@ -302,5 +304,6 @@ button:hover {
 
 </body>
 </html>
+
 
 
