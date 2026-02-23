@@ -5,53 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <style>
-        nav{
-            background-color: black;
-            height: 50px;
-            border-radius: 10px;
-        }
-         h2#weather{
-            color: white;
-           padding-top: 10px;
-           margin-left: 10px;
-        }
-        a.link{
-            color: white;
-            text-decoration: none;
-                    
-         
-            
-        }
-        span{
-            color: rgb(15, 152, 180);
-        }
-        button{
-            height: 40px;
-            width: 90px;
-            border-radius: 10px;
-           box-shadow:0px 5px 5px  black 
-        }
-        .check{
-            color: black;
-            text-decoration: none;
-        }
+        /* ===== Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        button:hover{
-            transform:scaleY(50px);
-        }
-        img{
-            height: 470px;
-            width: 800px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-left: 40%;
-        }
-        .link{
-            color: white;
-            text-decoration: none;
-        }
+/* ===== Body / Page fill ===== */
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top, #1e293b, #020617);
+    color: #e5e7eb;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== Navbar ===== */
+nav {
+    height: 60px;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+h2#weather {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.link {
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+/* ===== Main hero content ===== */
+body > h2 {
+    margin-top: 5rem;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #cbd5f5;
+}
+
+body > h1 {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1.2;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Accent word */
+span {
+    color: #38bdf8;
+}
+
+/* ===== Call-to-action button ===== */
+button#btn {
+    margin: 3rem auto 0;
+    padding: 0.9rem 2.2rem;
+    border-radius: 999px;
+    border: none;
+    background: linear-gradient(135deg, #38bdf8, #6366f1);
+    box-shadow: 0 25px 60px rgba(99, 102, 241, 0.4);
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+button#btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 35px 90px rgba(99, 102, 241, 0.55);
+}
+
+a.check {
+    text-decoration: none;
+    color: #020617;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+}
+
+/* ===== Remove image visually ===== */
+img {
+    display: none;
+}
+
+/* ===== Page balance (fills screen nicely) ===== */
+body::after {
+    content: "";
+    flex: 1;
+}
+
+/* ===== Mobile adjustments ===== */
+@media (max-width: 600px) {
+    body > h1 {
+        font-size: 2.1rem;
+        padding: 0 1rem;
+    }
+
+    body > h2 {
+        font-size: 1.2rem;
+    }
+
+    button#btn {
+        padding: 0.8rem 1.8rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -68,9 +137,10 @@
 
     <button id="btn"  type="button" ><a class="check" href="./weather.html">Check Now</button></a>
 
-    <img src="https://in.images.search.yahoo.com/images/view;_ylt=Awr1SY64PZBpC9MwmRW9HAx.;_ylu=c2VjA3NyBHNsawNpbWcEb2lkAzQ2NDEzNzRhMDQ2YWM3MGQ2ZDFjYzFkMWUxOGE4NWU1BGdwb3MDMTQEaXQDYmluZw--?back=https%3A%2F%2Fin.images.search.yahoo.com%2Fsearch%2Fimages%3Fp%3Dweather%2Bimg%26type%3DE210IN885G0%26fr%3Dmcafee%26fr2%3Dpiv-web%26tab%3Dorganic%26ri%3D14&w=2560&h=1600&imgurl=wallpaperaccess.com%2Ffull%2F1540049.jpg&rurl=https%3A%2F%2Fwallpaperaccess.com%2Fweather&size=559KB&p=weather+img&oid=4641374a046ac70d6d1cc1d1e18a85e5&fr2=piv-web&fr=mcafee&tt=Weather+Wallpapers+-+Top+Free+Weather+Backgrounds+-+WallpaperAccess&b=0&ni=21&no=14&ts=&tab=organic&sigr=NVQG5X8J6hNv&sigb=KcCfJ7Gpjc77&sigi=t6o5.EQI2Y.Z&sigt=6qeYLxKsLbhR&.crumb=kw9ZKZWw41r&fr=mcafee&fr2=piv-web&type=E210IN885G0" alt="">
+    
 
     
     
 </body>
+</html>
 </html>
