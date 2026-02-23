@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        nav{
+            background-color: black;
+            height: 50px;
+            border-radius: 10px;
+        }
+        h2{
+            color: white;
+           padding-top: 10px;
+           margin-left: 10px;
+        }
+        form {
+            width: 60%;
+            position: relative;
+            margin: 5rem auto;
+        }
+        form input[type="text"] {
+            width: 100%;
+            padding: 2rem 5rem 2rem 2rem;
+            background: #1e202b;
+            color: white;
+            outline: none;
+            border: none;
+            font-size: 1.7rem;
+            border-radius: 3rem;
+        }
+        button{
+            position: absolute;
+            top: 4%;
+            right: -12%;
+            border: none;
+            background: #009ad8;
+            padding: 0 3rem;
+            border-radius: 3rem;
+            color: white;
+            font-size: 1.6rem;
+            height: 90%;
+        }
+        .tempInfo {
+            width: 40rem;
+            margin: auto;
+            min-height: 20rem;
+            background-color: #323544;
+            border-radius: 1rem;
+            padding: 1rem;
+            font-family: "Roboto", sans-serif;
+        }
+        p#output{
+            text-align: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        .link{
+            color: white;
+            text-decoration: none;
+        }
+        
+        
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h2 ><a class="link" href="./index.html">Weather</a></h2>
+    </nav>
+
+    <form id="weatherForm">
+        <input type="text" id="cityInput" placeholder="Enter Your City Name">
+        <button type="submit" id="btn">Search</button>
+    </form>
+
+    <div class="tempInfo">
+        <div class="main_layer">
+            <p id="output"></p>
+        </div>
+    </div>
+
+    <script>
+        const cityInput = document.getElementById("cityInput")
+        const btn = document.getElementById("btn")
+        const output = document.getElementById("output")
+        const form = document.getElementById("weatherForm")
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();  
+            const city = cityInput.value
+            if (!city) {
+                output.innerHTML = "<p>Please enter  city name</p>"
+                return
+            }
+            fetchWeather(city)
+        })
+
+        function fetchWeather(city){
+            const url = `https://goweather.xyz/v2/weather/${city}`
+
+            fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                     Error("City not found")
+                }
+                return response.json()
+            })
+            .then(data => showWeather(data))
+            .catch(error => showError(error.message))
+        }
+
+        function showWeather(data){
+            const temp = data.temperature    
+            const desc = data.description
+            const wind  = data.wind   
+
+            const weatherHtml = `
+                <div class="weather">
+                    <p class="city_val"> Name:${cityInput.value}</p>
+                    
+                   <p class="city_val1">Weather: ${desc}</p>  
+                    <h1>Temperature: ${temp}</h1>
+                    
+                    <p class="speed">Speed: ${wind}</p>
+                </div>`
+
+            output.innerHTML = weatherHtml
+        }
+
+        function showError(message){
+            output.innerHTML = `<p>Error: ${message}</p>`
+        }
+    </script>
+
+</body>
+</html>
